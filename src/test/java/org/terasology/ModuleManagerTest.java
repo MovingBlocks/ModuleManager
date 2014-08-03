@@ -31,7 +31,7 @@ import org.eclipse.jgit.api.errors.GitAPIException;
  *       The InMemory repository of jGIt does not support fetching.
  * @author Martin Steiger
  */
-public final class ModuleManagerTest {
+final class ModuleManagerTest {
 
     public static void main(String[] args) throws IOException, URISyntaxException, GitAPIException {
         URL url = new URL("https://github.com/Terasology/Index.git");
@@ -42,6 +42,24 @@ public final class ModuleManagerTest {
             for (ModuleInfo info : mm.getAll()) {
                 System.out.println(info);
             }
+        } finally {
+            deleteDirectory(localPath);
         }
+    }
+
+    private static boolean deleteDirectory(File directory) {
+        if (directory.exists()) {
+            File[] files = directory.listFiles();
+            if (null != files) {
+                for (int i = 0; i < files.length; i++) {
+                    if (files[i].isDirectory()) {
+                        deleteDirectory(files[i]);
+                    } else {
+                        files[i].delete();
+                    }
+                }
+            }
+        }
+        return (directory.delete());
     }
 }
