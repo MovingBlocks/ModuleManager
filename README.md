@@ -16,14 +16,15 @@ Usage
 
 To use ModuleManager, you can write something like this:
 
-	URL url = new URL("https://github.com/Terasology/Index.git");
-	try (ModuleManager mm = new ModuleManager(localPath, url)) {
-		mm.updateRepo();
-		for (ModuleInfo info : mm.getAll()) {
-			System.out.println(info);
-		}
+```java
+URL url = new URL("https://github.com/Terasology/Index.git");
+try (ModuleManager mm = new ModuleManager(localPath, url)) {
+	mm.updateRepo();
+	for (ModuleInfo info : mm.getAll()) {
+		System.out.println(info);
 	}
-
+}
+```
 
 License
 --------
