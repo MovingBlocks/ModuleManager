@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package org.terasology;
+package org.terasology.mm;
+
+import java.util.Date;
 
 /**
  * Describes a Terasology module
@@ -25,8 +27,11 @@ public class ModuleInfo {
     private String id;
     private String version;
     private String author;
+    private String url;
     private String displayName;
     private String description;
+    private int    stars;
+    private Date   lastPush;
 
     public ModuleInfo() {
         // the default constructor is required for gson
@@ -36,40 +41,32 @@ public class ModuleInfo {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getVersion() {
         return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public String getUrl() {
+        return url;
     }
 
     public String getDisplayName() {
         return displayName;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public int getStars() {
+        return stars;
+    }
+
+    public Date getLastPush() {
+        return lastPush;
     }
 
     @Override

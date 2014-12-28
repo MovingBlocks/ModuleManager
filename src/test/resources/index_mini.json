@@ -1,0 +1,38 @@
+{
+    "Sample": {
+        "displayName": "Sample Module", 
+        "description": "This module contains assets and code for testing / showcasing Terasology engine + module features", 
+        "author": "MovingBlocks Community", 
+        "url": "https://github.com/Terasology/Sample", 
+        "stars": 0, 
+        "version": "0.1.0", 
+        "lastPush": "2014-11-02T23:54:16Z", 
+        "dependencies": [], 
+        "id": "Sample", 
+        "isServerSideOnly": false
+    }, 
+    "FunnyBlocks": {
+        "displayName": "Funny Blocks", 
+        "description": "A module adding funny/random goofy blocks just because they are awesome!", 
+        "author": "A'nW", 
+        "url": "https://github.com/Terasology/FunnyBlocks", 
+        "stars": 0, 
+        "version": "0.1.0", 
+        "lastPush": "2014-02-02T04:50:43Z", 
+        "dependencies": [], 
+        "id": "FunnyBlocks", 
+        "isServerSideOnly": false
+    }, 
+    "LightAndShadowResources": {
+        "displayName": "LightAndShadowResources", 
+        "description": "Art resources module for Light & Shadow, a.k.a. LASR!", 
+        "author": "glasz, SuperSnark, Skaldarnar", 
+        "url": "https://github.com/Terasology/LightAndShadowResources", 
+        "stars": 0, 
+        "version": "0.1.0", 
+        "lastPush": "2014-04-24T17:48:10Z", 
+        "dependencies": [], 
+        "id": "LightAndShadowResources", 
+        "isServerSideOnly": false
+    }
+}
