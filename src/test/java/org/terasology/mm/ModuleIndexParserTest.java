@@ -21,23 +21,31 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import org.junit.Assert;
+
 import org.junit.Test;
 
 /**
  * TODO Type description
  * @author Martin Steiger
  */
-public class ModuleManagerTest {
+public class ModuleIndexParserTest {
 
     @Test
-    public void testJsonParser() throws URISyntaxException, IOException {
+    public void testJsonParserLocally() throws IOException {
+        URL mini = ModuleIndexParserTest.class.getResource("/index_mini.json");
+
+        ModuleIndexParser mm = new ModuleIndexParser(mini);
+        Assert.assertNotNull(mm.getById("Sample"));
+    }
+
+    @Test
+    public void testJsonParserJenkins() throws URISyntaxException, IOException {
         URI jenkins = new URI("http://jenkins.terasology.org/");
         URL index = jenkins.resolve("job/UpdateModuleIndex/lastSuccessfulBuild/artifact/index.json").toURL();
 
-        URL mini = ModuleManagerTest.class.getResource("/index_mini.json");
-
-        ModuleManager mm = new ModuleManager(mini);
-        System.out.println(mm.getAll());
+        ModuleIndexParser mm = new ModuleIndexParser(index);
+        Assert.assertNotNull(mm.getById("Sample"));
     }
 }
 
