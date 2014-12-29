@@ -8,8 +8,7 @@ This library is functional, but still **incubating** and the API can change with
 Content
 --------
 
-This library uses jGit to clone the Terasology index repository and parse its contents.
-Unfortunately, the InMemory-version of `Repository` doesn't support fetching from a remote repository (it's a bare repository only).
+This library uses [eclipse Aether](http://eclipse.org/aether/) to access the Terasology module repository (Maven2) and read out its contents.
 
 Usage
 --------
@@ -17,14 +16,13 @@ Usage
 To use ModuleManager, you can write something like this:
 
 ```java
-URL url = new URL("https://github.com/Terasology/Index.git");
-try (ModuleManager mm = new ModuleManager(localPath, url)) {
-	mm.updateRepo();
-	for (ModuleInfo info : mm.getAll()) {
-		System.out.println(info);
-	}
-}
+RepositoryConnector connector = new RepositoryConnector(root);
+Collection<String> versions = connector.findAvailableVersions("Sample");
+File file = connector.downloadArtifact("Sample", "0.1.0-SNAPSHOT");
+Collection<String> deps = connector.getDependencies("Sample");
 ```
+
+Easy as pie!
 
 License
 --------
